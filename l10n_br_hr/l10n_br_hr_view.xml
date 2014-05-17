@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_l10n_br_hr_etnia_tree" model="ir.ui.view">
+            <field name="name">l10n_br_hr.etnia.tree</field>
+            <field name="model">l10n_br_hr.etnia</field>
+            <field name="arch" type="xml">
+                <tree string="Etnia">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_br_hr_etnia_form" model="ir.ui.view">
+            <field name="name">l10n_br_hr.etnia.form</field>
+            <field name="model">l10n_br_hr.etnia</field>
+            <field name="arch" type="xml">
+                <form string="Etnia" version="7.0">
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="open_view_l10n_br_hr_tree" model="ir.actions.act_window">
+            <field name="name">Etnias</field>
+            <field name="res_model">l10n_br_hr.etnia</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Clique para adicionar etnias.
+                </p>
+            </field>
+        </record>
+        
+        <menuitem action="open_view_l10n_br_hr_tree"
+        id="menu_open_view_l10n_hr_br_etnia_tree"
+        parent="hr.menu_hr_main"
+        sequence="2"
+        />
+    </data>        
+</openerp>
