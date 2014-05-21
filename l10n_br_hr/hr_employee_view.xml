@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record id="view_l10n_br_hr_employee_form" model="ir.ui.view">
+      <field name="name">l10n_br_hr.employee.form</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+
+        <field name="name" position="after">
+          <field name="matricula" placeholder="Matrícula"/>
+        </field>
+
+        <notebook position="before">
+          <group>
+            <field name="pis_pasep"/>
+            <field name="carteira_de_trabalho_numero"/>
+            <field name="carteira_de_trabalho_serie"/>
+            <field name="deficiencia"/>
+            <field name="etnia_id"/>
+          </group>
+        </notebook>
+
+      </field>
+    </record>
+    <record id="view_l10n_br_hr_employee_tree" model="ir.ui.view">
+      <field name="name">l10n_br_hr.employee.tree</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_tree"/>
+      <field name="arch" type="xml">
+
+        <field name="name" position="before">
+          <field name="matricula" placeholder="Matrícula"/>
+        </field>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>
+
