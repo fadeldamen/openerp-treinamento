@@ -29,3 +29,32 @@ class l10n_br_hr_etnia(osv.osv):
 
 l10n_br_hr_etnia()
 
+class l10n_br_hr_ocupacao(osv.osv):
+    _name = 'l10n_br_hr.ocupacao'
+    _description = u'Ocupação'
+    _columns = {
+        'code': fields.char(u'Código', size=5, required=True),
+        'name': fields.char(u'Descrição', size=10, required=True),
+        }
+
+    def name_get(self, cr, uid, ids, context=None):
+        if not ids:
+            return []
+        reads = self.read(cr, uid, ids, ['name', 'code'], context=context)
+        res = []
+        for record in reads:
+            name = record['name']
+            if record['code']:
+                name = str(record['code']) + ' - ' + name
+            res.append((record['id'], name))
+        return res
+    def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=80):
+        if not args:
+            args = []
+        if context is None:
+            context = {}
+        ids = self.search(cr, user, ['|', ('name', operator, name), ('code', operator, name)] + args, limit=limit, context=context)
+        return self.name_get(cr, user, ids, context)
+
+
+l10n_br_hr_ocupacao()

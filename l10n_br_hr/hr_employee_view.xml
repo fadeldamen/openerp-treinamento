@@ -14,11 +14,13 @@
 
         <notebook position="before">
           <group>
-            <field name="pis_pasep"/>
+            <field name="pis_pasep" on_change="on_change_mask_pis_pasep(pis_pasep)" />
             <field name="carteira_de_trabalho_numero"/>
             <field name="carteira_de_trabalho_serie"/>
             <field name="deficiencia"/>
             <field name="etnia_id"/>
+            <field name="ocupacao_id"/>
+
           </group>
         </notebook>
 

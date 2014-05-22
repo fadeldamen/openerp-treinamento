@@ -21,6 +21,7 @@
 ##############################################################################
 
 from osv import osv, fields
+import re
 
 class hr_employee(osv.osv):
     _name = 'hr.employee'
@@ -43,8 +44,24 @@ class hr_employee(osv.osv):
          ), u'Deficiência'
         ),
         'etnia_id': fields.many2one('l10n_br_hr.etnia', u'Etnia'),
+        'ocupacao_id': fields.many2one('l10n_br_hr.ocupacao', u'Ocupação'),
+
 
     }
+    _sql_constraints = [
+        ('hr_employee_matricula_uniq', 'UNIQUE(matricula)',
+        u'Já existe um empregado cadastrado com esta matrícula!'),
+    ]
+    def on_change_mask_pis_pasep(self, cr, uid, ids, pis_pasep):
+        result = {'value': {'pis_pasep': False}}
+        if not pis_pasep:
+            return pis_pasep
+        val = re.sub('[^0-9]', '', pis_pasep)
+        if len(val) == 11:
+            pis_pasep = "%s.%s.%s-%s" % (val[0:3], val[3:8], val[8:10], val[10:])
+            result['value']['pis_pasep'] = pis_pasep
+        return result
+
 
 hr_employee()
 
