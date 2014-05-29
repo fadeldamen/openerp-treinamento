@@ -29,13 +29,34 @@
             <field name="name">Etnias</field>
             <field name="res_model">l10n_br_hr.etnia</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Clique para adicionar etnias.
                 </p>
             </field>
         </record>
+
+    
+        <record model="ir.ui.view" id="view_etnia_kanban">
+            <field name="name">l10n_br_hr.etnia.kanban</field>
+            <field name="model">l10n_br_hr.etnia</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div style="width: 200px">
+                                <a type="open"><field name="name"/></a>
+                                <a type="delete" style="color: red">X</a>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
         
         <menuitem action="open_view_l10n_br_hr_tree"
         id="menu_open_view_l10n_hr_br_etnia_tree"
