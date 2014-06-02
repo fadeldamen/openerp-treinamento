@@ -24,6 +24,15 @@
           </group>
         </notebook>
 
+        <sheet position="before">
+          <head>
+            <button name="%(action_l10n_br_hr_user_from_employee_form)d"
+              context="{'employee_id': id, 'employee_name': name, 'company_id': company_id}"
+              type="action" string="Criar usuário" />
+          </head>
+        </sheet>
+
+
       </field>
     </record>
 

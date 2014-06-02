@@ -27,7 +27,7 @@
     'website': 'http://proge.com.br',
     'description': '''Long description.''',
     'depends': ['hr'],
-    'data': ['l10n_br_hr_view.xml',  'hr_employee_view.xml',], # Views, Dados, Wizards
+    'data': ['wizard/user_from_employee_view.xml','l10n_br_hr_view.xml',  'hr_employee_view.xml', ], # Views, Dados, Wizards
     'demo': [],
     'installable': True,
 }

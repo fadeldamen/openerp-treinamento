@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="l10n_br_hr_user_from_employee_wizard_form">
+          <field name="name">l10n_br_hr.user_from_employee.form</field>
+          <field name="model">l10n_br_hr.user_from_employee</field>
+          <field name="arch" type="xml">
+            <form string="Criar usuário" version="7.0">
+              <sheet>
+                <field name="state" invisible="1"/>
+                <group states="initial">
+                  <field name="employee_id" invisible="1"/>
+                  <field name="name" readonly="1"/>
+                  <field name="login"/>
+                </group>
+                <group states="done">
+                  <h4>Usuário criado com sucesso</h4>
+                </group>
+              </sheet>
+              <footer>
+                <button string="Criar" name="create_user" type="object" states="initial" class="oe_highlight"/>
+                <button string="Concluído" name="done" type="object" states="done" class="oe_highlight"/>
+                <button string="Fechar" name="close" special="cancel" states="associated"/>
+                <span states="initial">or </span>
+                <button string="Cancelar" class="oe_link" special="cancel" states="initial" />
+              </footer>
+            </form>
+          </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_l10n_br_hr_user_from_employee_form">
+          <field name="name">Criar usuário</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">l10n_br_hr.user_from_employee</field>
+          <field name="view_mode">form</field>
+          <field name="view_type">form</field>
+          <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>
